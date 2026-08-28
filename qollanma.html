@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qo‘llanma — Tosh va Mikro</title>
+<style>
+:root {
+  --yashil: #1a7f5a;
+  --fon: #f5f6f7;
+  --kartochka: #ffffff;
+  --chegara: #e0e0e0;
+  --matn: #1c1f1e;
+  --sust: #6b7280;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fon);
+  color: var(--matn);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+
+header {
+  background: var(--yashil);
+  color: #fff;
+  padding: 28px 20px;
+}
+
+header .ich {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+header .nishon {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, .16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex: 0 0 auto;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+header p {
+  margin: 2px 0 0;
+  font-size: 14px;
+  opacity: .85;
+}
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+.karta {
+  background: var(--kartochka);
+  border: 1px solid var(--chegara);
+  border-radius: 12px;
+  padding: 24px 22px;
+  margin-bottom: 16px;
+}
+
+.sana {
+  color: var(--sust);
+  font-size: 13.5px;
+  margin: 0 0 18px;
+}
+
+.bolim-nomi {
+  display: inline-block;
+  background: #f0f7f4;
+  color: var(--yashil);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+
+h2 {
+  font-size: 16.5px;
+  font-weight: 700;
+  margin: 26px 0 8px;
+  line-height: 1.4;
+}
+
+h2:first-of-type { margin-top: 0; }
+
+h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 20px 0 6px;
+}
+
+p { margin: 0 0 10px; }
+
+ol, ul { margin: 0 0 12px; padding-left: 22px; }
+li { margin-bottom: 6px; }
+
+a { color: var(--yashil); }
+
+.ogoh {
+  border-left: 3px solid var(--yashil);
+  background: #f0f7f4;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  margin: 16px 0;
+}
+
+.ogoh p:last-child { margin-bottom: 0; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 16px;
+  font-size: 15px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--chegara);
+  vertical-align: top;
+}
+
+th {
+  font-size: 13px;
+  color: var(--sust);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+td:first-child { font-weight: 600; white-space: nowrap; }
+
+.savol {
+  border-bottom: 1px solid var(--chegara);
+  padding: 16px 0;
+}
+
+.savol:last-child { border-bottom: 0; padding-bottom: 0; }
+.savol:first-of-type { padding-top: 0; }
+
+.savol h3 { margin: 0 0 6px; }
+.savol p:last-child { margin-bottom: 0; }
+
+.havola-royxat { list-style: none; padding: 0; margin: 0; }
+
+.havola-royxat li {
+  border-bottom: 1px solid var(--chegara);
+  margin: 0;
+}
+
+.havola-royxat li:last-child { border-bottom: 0; }
+
+.havola-royxat a {
+  display: block;
+  padding: 16px 4px;
+  text-decoration: none;
+  color: var(--matn);
+  font-weight: 600;
+}
+
+.havola-royxat a span {
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--sust);
+  margin-top: 2px;
+}
+
+footer {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px 48px;
+  color: var(--sust);
+  font-size: 13.5px;
+}
+
+footer a { color: var(--sust); }
+
+@media (max-width: 520px) {
+  .karta { padding: 20px 16px; }
+  header h1 { font-size: 17px; }
+  table { font-size: 14px; }
+  th, td { padding: 8px 5px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="ich">
+    <div class="nishon">TM</div>
+    <div>
+      <h1>Qo‘llanma</h1>
+      <p>Tosh va Mikro — karyer va drobilka hisobi</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="karta">
+    <p class="sana">Oxirgi yangilanish: 2026-08-28</p>
+
+    <h2>Ilova nima qiladi</h2>
+    <p>Tosh va Mikro korxonaning kunlik hisobini yuritadi: nima
+    sotildi, qancha pul kirdi, qancha xarajat bo‘ldi, kim qancha
+    qarzdor va oy oxirida qancha foyda qoldi. Ma’lumot bulutda
+    saqlanadi — telefon almashsa ham hech narsa yo‘qolmaydi.</p>
+
+    <p>Ilova uch bo‘limdan iborat. Ilova ochilganda birinchi bo‘lib
+    bo‘lim tanlash ekrani chiqadi:</p>
+
+    <table>
+      <tr>
+        <th>Bo‘lim</th>
+        <th>Nima yoziladi</th>
+      </tr>
+      <tr>
+        <td>Karyer</td>
+        <td>Tosh sotuvi, xarajat, portlatish, pul</td>
+      </tr>
+      <tr>
+        <td>Drobilka</td>
+        <td>Ishlab chiqarish, mikrokalsit sotuvi, xarajat, pul</td>
+      </tr>
+      <tr>
+        <td>Korxona</td>
+        <td>Umumiy xarajat, bank, kredit, soliq, sozlamalar</td>
+      </tr>
+    </table>
+
+    <div class="ogoh">
+      <p><strong>Ilova internetsiz ishlamaydi.</strong> Ma’lumot
+      bulutdagi bazadan olinadi, shuning uchun yozuv kiritish uchun
+      internet aloqasi bo‘lishi shart.</p>
+    </div>
+  </div>
+
+  <div class="karta">
+    <div class="bolim-nomi">1-qism · Korxona egasi uchun</div>
+
+    <h2>Birinchi kun — ilovani sozlash</h2>
+    <p>Ilovani birinchi marta ochganingizda bosh ekranda sariq chiziq
+    turadi: <strong>«Ilovani sozlash»</strong>. Uni bossangiz to‘rt
+    banddan iborat ro‘yxat ochiladi. To‘rttasi ham bajarilgach chiziq
+    o‘zi yo‘qoladi.</p>
+
+    <ol>
+      <li><strong>Mahsulotlar</strong> — nima sotasiz va nima ishlab
+      chiqarasiz. Sozlamalar &gt; Mahsulotlar. Har mahsulotning
+      o‘lchov birligi (tonna, dona, m³) va bo‘limi ko‘rsatiladi.</li>
+      <li><strong>Texnika</strong> — Kamaz, Howo, ekskavator va
+      boshqalar. Sozlamalar ekranidan qo‘shiladi. Sotuv va xarajat
+      yozganda mashina shu ro‘yxatdan tanlanadi.</li>
+      <li><strong>Tariflar va narxlar</strong> — Sozlamalar ekranida.
+      Bir reys uchun haydovchiga to‘lanadigan pul, ekskavatorchi
+      haqi, ichki tosh narxi va shunga o‘xshash doimiy qiymatlar.
+      Nolga teng turgan tarif bo‘lsa ro‘yxat bajarilgan
+      hisoblanmaydi.</li>
+      <li><strong>Odamlar</strong> — mijoz, ishchi va ta’minotchi.
+      Alohida kiritish shart emas: Sotuv yoki Xarajat shaklini
+      to‘ldirganda yangi ism yozsangiz ro‘yxatga o‘zi
+      qo‘shiladi.</li>
+    </ol>
+
+    <p>Ro‘yxat pastida ikkita <strong>ixtiyoriy</strong> band ham bor
+    — ular sanoqqa kirmaydi va chiziqni ushlab turmaydi:</p>
+    <ul>
+      <li><strong>Xodimlar</strong> — yolg‘iz ishlasangiz kerak
+      emas</li>
+      <li><strong>Boshlang‘ich qoldiq</strong> — ilovaga o‘tgan
+      kundagi naqd pul, bank qoldig‘i va ombordagi mahsulot</li>
+    </ul>
+
+    <div class="ogoh">
+      <p><strong>Tarifni keyin o‘zgartirsangiz eski yozuvlar
+      o‘zgarmaydi.</strong> Yangi tarif faqat bundan keyin
+      kiritiladigan yozuvlarga qo‘llanadi. Bu ataylab shunday: o‘tgan
+      oyning hisoboti bugungi narx bilan qayta hisoblanib
+      ketmasligi kerak.</p>
+    </div>
+
+    <h2>Xodim qo‘shish</h2>
+    <p>Bo‘lim tanlash ekranida <strong>«Xodimlar va huquqlar»</strong>
+    tugmasi bor. U yerda xodimga login va parol yaratasiz va qaysi
+    bo‘limda ishlashini, nima qila olishini belgilaysiz. Xodim faqat
+    o‘ziga ochilgan bo‘limni ko‘radi.</p>
+
+    <h2>Hisobot va pul</h2>
+    <ul>
+      <li><strong>Bosh ekran</strong> — bugungi holat: naqd pul, oylik
+      foyda va asosiy raqamlar. Kunlar o‘tkazib yuborilgan bo‘lsa
+      ilova o‘zi so‘raydi.</li>
+      <li><strong>Pul</strong> — berilgan va olingan pul bir ekranda.
+      Kimga qancha bergansiz, kim qancha qarzdor.</li>
+      <li><strong>Tarix</strong> — kiritilgan yozuvlar kun bo‘yicha.
+      Tuzatish va o‘chirish shu yerdan qilinadi.</li>
+      <li><strong>Oylik hisobot</strong> — oy oxirida ombordagi
+      qoldiq va kassadagi pul so‘raladi, ilova haqiqiy foydani
+      chiqaradi.</li>
+      <li><strong>Ma’lumot eksporti</strong> — Sozlamalar &gt;
+      Ma’lumot eksporti. Oyni tanlaysiz, ilova CSV fayl beradi, uni
+      Excelda ochish mumkin.</li>
+    </ul>
+
+    <h2>Obuna</h2>
+    <p>Obuna holati va muddati <strong>Yordam</strong> ekranida
+    ko‘rinadi (bo‘lim tanlash ekranining eng pastida). Muddat
+    tugashiga 7 kun qolganda ilovada sariq ogohlantirish chiqadi.</p>
+    <p>Muddat tugasa ma’lumotlaringiz joyida qoladi va ko‘rinib
+    turadi, lekin <strong>yangi yozuv kiritib bo‘lmaydi</strong>.
+    Uzaytirish uchun Yordam ekranidagi Telegram tugmasi orqali
+    bog‘laning.</p>
+  </div>
+
+  <div class="karta">
+    <div class="bolim-nomi">2-qism · Xodim uchun</div>
+
+    <h2>Kirish</h2>
+    <p>Login va parolni korxona egasi beradi — ilovada ochiq
+    ro‘yxatdan o‘tish yo‘q. Kirgandan keyin sizga ochilgan bo‘limni
+    tanlaysiz.</p>
+
+    <h2>Kunlik ish</h2>
+    <p>Bo‘limni tanlagach <strong>«Amaliyot tanlang»</strong> ekrani
+    ochiladi. Qaysi qatorlar ko‘rinishi bo‘limga va sizga berilgan
+    huquqqa bog‘liq:</p>
+
+    <table>
+      <tr>
+        <th>Amaliyot</th>
+        <th>Qachon ishlatiladi</th>
+      </tr>
+      <tr>
+        <td>Sotuv</td>
+        <td>Mahsulot sotilganda. Mijoz, mahsulot, miqdor, narx va
+        to‘lov turi yoziladi</td>
+      </tr>
+      <tr>
+        <td>Xarajat</td>
+        <td>Yoqilg‘i, ehtiyot qism, ish haqi, tashqaridan olingan
+        tosh va boshqa to‘lovlar</td>
+      </tr>
+      <tr>
+        <td>Ishlab chiqarish</td>
+        <td>Drobilkada: qancha xomashyodan qancha mahsulot
+        chiqqani</td>
+      </tr>
+      <tr>
+        <td>Portlatish</td>
+        <td>Karyerda: portlatish ochiladi, xarajatlari bog‘lanadi,
+        portlatilgach yopiladi</td>
+      </tr>
+      <tr>
+        <td>Pul</td>
+        <td>Berilgan yoki olingan pul, qarz to‘lovi</td>
+      </tr>
+    </table>
+
+    <h2>Xato yozib yuborsangiz</h2>
+    <p>Vahima qilmang — yozuvni o‘chirish yoki tuzatish mumkin.
+    <strong>Tarix</strong> ekranidan kerakli kunni topib, yozuvni
+    bosing. O‘zgartirganingiz jurnalda qayd etiladi, shuning uchun
+    korxona egasi nima o‘zgarganini ko‘rib turadi.</p>
+
+    <div class="ogoh">
+      <p><strong>Shaklni yarim tashlab ketsangiz yo‘qolmaydi.</strong>
+      Ilova to‘ldirilgan qismini eslab qoladi va keyingi safar
+      «davom etasizmi» deb so‘raydi.</p>
+    </div>
+  </div>
+
+  <div class="karta">
+    <div class="bolim-nomi">3-qism · Savol-javob</div>
+
+    <div class="savol">
+      <h3>Yangi yozuv kiritolmayapman, tugma ishlamayapti</h3>
+      <p>Uch sabab bo‘lishi mumkin. Birinchisi — <strong>obuna
+      muddati tugagan</strong>: ekran tepasida qizil chiziq turadi.
+      Ikkinchisi — sizga <strong>bu amal uchun huquq
+      berilmagan</strong>: korxona egasidan so‘rang. Uchinchisi —
+      siz yozmoqchi bo‘lgan sana <strong>yopiq davrga</strong>
+      tegishli.</p>
+    </div>
+
+    <div class="savol">
+      <h3>«Yopiq davr» nima?</h3>
+      <p>Har bo‘limning kassa sanasi bor. Undan oldingi kunlarga
+      yangi yozuv kiritib bo‘lmaydi — chunki o‘sha davr uchun hisobot
+      allaqachon topshirilgan. Eski yozuvlar o‘chirilmaydi, faqat
+      yangisini qo‘shib bo‘lmaydi. Sanani korxona egasi Sozlamalardan
+      suradi.</p>
+    </div>
+
+    <div class="savol">
+      <h3>Yozuvni qanday tuzataman yoki o‘chiraman?</h3>
+      <p>Tarix ekranidan kerakli kunni toping va yozuvni bosing.
+      Agar yozuv yopiq davrga tushib qolgan bo‘lsa tuzatib
+      bo‘lmaydi.</p>
+    </div>
+
+    <div class="savol">
+      <h3>Sotdim, lekin foyda o‘zgarmadi</h3>
+      <p>Qarzga sotilgan mahsulot sotuv sifatida yoziladi, lekin pul
+      hali kelmagan. Naqd pul mijoz to‘laganda, Pul ekranidan qarz
+      to‘lovi kiritilganda o‘sadi. Mijozning qarzi Pul ekranida
+      ko‘rinib turadi.</p>
+    </div>
+
+    <div class="savol">
+      <h3>Yangi mahsulot qanday qo‘shiladi?</h3>
+      <p>Sozlamalar &gt; Mahsulotlar. Bu ekran faqat korxona egasiga
+      ochiq. Endi sotilmaydigan mahsulotni o‘chirmang —
+      <strong>yashiring</strong>: shunda eski yozuvlar joyida
+      qoladi, lekin ro‘yxatda ko‘rinmaydi.</p>
+    </div>
+
+    <div class="savol">
+      <h3>Tarifni o‘zgartirsam eski yozuvlar qayta hisoblanadimi?</h3>
+      <p>Yo‘q. Yangi tarif faqat bundan keyingi yozuvlarga
+      qo‘llanadi.</p>
+    </div>
+
+    <div class="savol">
+      <h3>Ma’lumotni Excelga qanday chiqaraman?</h3>
+      <p>Sozlamalar &gt; Ma’lumot eksporti. Oyni tanlaysiz, ilova CSV
+      fayl tayyorlaydi va uni pochta, Telegram yoki fayllar
+      dasturiga yuborish mumkin.</p>
+    </div>
+
+    <div class="savol">
+      <h3>Parolni unutdim</h3>
+      <p>Xodim bo‘lsangiz korxona egasiga ayting — u yangi parol
+      beradi. Korxona egasi bo‘lsangiz Yordam ekranidagi Telegram
+      orqali bizga yozing.</p>
+    </div>
+
+    <div class="savol">
+      <h3>Telefonim almashsa ma’lumot yo‘qoladimi?</h3>
+      <p>Yo‘q. Ma’lumot telefonda emas, bulutdagi bazada saqlanadi.
+      Yangi telefonga ilovani o‘rnatib, o‘sha login va parol bilan
+      kirsangiz hammasi joyida turadi.</p>
+    </div>
+
+    <div class="savol">
+      <h3>Bir nechta odam bir vaqtda ishlashi mumkinmi?</h3>
+      <p>Ha. Har xodim o‘z telefonidan kiradi, yozuvlar bitta umumiy
+      bazaga tushadi. Kim nima yozgani saqlanib boradi.</p>
+    </div>
+
+    <div class="savol">
+      <h3>Bosh ekranda «o‘tkazib yuborilgan kun» so‘ralyapti</h3>
+      <p>Ilova orqaga bir hafta qarab, hech qanday yozuv
+      kiritilmagan kunlarni topadi va o‘sha kunda ish bo‘lgan yoki
+      bo‘lmaganini so‘raydi. Ish bo‘lmagan bo‘lsa shunday deb
+      belgilang — kun bo‘sh emas, «ish bo‘lmagan» deb yopiladi.</p>
+    </div>
+
+    <div class="savol">
+      <h3>Akkauntimni o‘chirmoqchiman</h3>
+      <p>Bo‘lim tanlash ekranining pastidagi «Akkauntni o‘chirish»
+      havolasi orqali. Batafsil tartib va nima saqlanib qolishi
+      <a href="akkaunt.html">alohida sahifada</a> yozilgan.</p>
+    </div>
+  </div>
+
+  <div class="karta">
+    <h2>Yordam kerakmi</h2>
+    <p>Telegram: <a href="https://t.me/+998501709219">+998 50 170 92
+    19</a></p>
+    <p>Pochta: <a href="mailto:sarvar0202@gmail.com">sarvar0202@gmail.com</a></p>
+    <ul class="havola-royxat" style="margin-top:14px">
+      <li><a href="index.html">Bosh sahifa
+        <span>Ilova haqida qisqacha</span></a></li>
+      <li><a href="maxfiylik.html">Maxfiylik siyosati
+        <span>Qanday ma’lumot yig‘iladi va qayerda saqlanadi</span></a></li>
+      <li><a href="akkaunt.html">Akkauntni va ma’lumotni o‘chirish
+        <span>O‘chirish tartibi</span></a></li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  <p>Tosh va Mikro · Sarvar Ganiyev</p>
+</footer>
+
+</body>
+</html>
