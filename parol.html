@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yangi parol qo‘yish — Tosh va Mikro</title>
+<style>
+:root {
+  --yashil: #1a7f5a;
+  --yashil-tuq: #12603f;
+  --qizil: #c0392b;
+  --fon: #f5f6f7;
+  --kartochka: #ffffff;
+  --chegara: #e0e0e0;
+  --matn: #1c1f1e;
+  --sust: #6b7280;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fon);
+  color: var(--matn);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+
+header {
+  background: var(--yashil);
+  color: #fff;
+  padding: 28px 20px;
+}
+
+header .ich {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+header .nishon {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, .16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex: 0 0 auto;
+}
+
+header h1 { margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -.01em; }
+header p { margin: 2px 0 0; font-size: 14px; opacity: .85; }
+
+main { max-width: 520px; margin: 0 auto; padding: 24px 20px 64px; }
+
+.karta {
+  background: var(--kartochka);
+  border: 1px solid var(--chegara);
+  border-radius: 12px;
+  padding: 24px 22px;
+  margin-bottom: 16px;
+}
+
+h2 { font-size: 16.5px; font-weight: 700; margin: 0 0 8px; line-height: 1.4; }
+p { margin: 0 0 10px; }
+a { color: var(--yashil); }
+
+.ogoh {
+  border-left: 3px solid var(--yashil);
+  background: #f0f7f4;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  margin: 16px 0 0;
+}
+
+.ogoh.xato { border-left-color: var(--qizil); background: #fdf0ee; }
+.ogoh p:last-child { margin-bottom: 0; }
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 16px 0 6px;
+}
+
+input[type="password"] {
+  width: 100%;
+  padding: 13px 14px;
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--matn);
+  background: var(--fon);
+  border: 1px solid var(--chegara);
+  border-radius: 10px;
+}
+
+input[type="password"]:focus {
+  outline: none;
+  border-color: var(--yashil);
+  background: #fff;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--yashil);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover { background: var(--yashil-tuq); }
+button:disabled { opacity: .5; cursor: default; }
+
+.kichik { font-size: 13.5px; color: var(--sust); margin-top: 10px; }
+
+footer {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 20px 48px;
+  color: var(--sust);
+  font-size: 13.5px;
+}
+
+footer a { color: var(--sust); }
+
+@media (max-width: 520px) {
+  .karta { padding: 20px 16px; }
+  header h1 { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="ich">
+    <div class="nishon">TM</div>
+    <div>
+      <h1>Tosh va Mikro</h1>
+      <p>Yangi parol qo‘yish</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1. Havola tekshirilmoqda -->
+  <div class="karta" id="kutish">
+    <h2>Havola tekshirilmoqda</h2>
+    <p class="kichik">Bir necha soniya kuting.</p>
+  </div>
+
+  <!-- 2. Yangi parol shakli -->
+  <div class="karta" id="shakl" hidden>
+    <h2>Yangi parol qo‘ying</h2>
+    <p class="kichik" id="pochta"></p>
+
+    <label for="p1">Yangi parol</label>
+    <input type="password" id="p1" autocomplete="new-password" minlength="6">
+
+    <label for="p2">Yana bir marta</label>
+    <input type="password" id="p2" autocomplete="new-password" minlength="6">
+
+    <button id="tugma" type="button">Saqlash</button>
+
+    <div class="ogoh xato" id="xato" hidden><p></p></div>
+
+    <p class="kichik">Kamida 6 belgi. Saqlangandan keyin eski parol
+    shu zahoti ishlamay qoladi.</p>
+  </div>
+
+  <!-- 3. Bo'ldi -->
+  <div class="karta" id="boldi" hidden>
+    <h2>Parol o‘zgartirildi</h2>
+    <p>Endi ilovaga yangi parol bilan kiring. Bu sahifani yopsangiz
+    bo‘ladi.</p>
+  </div>
+
+  <!-- 4. Havola yaroqsiz -->
+  <div class="karta" id="yaroqsiz" hidden>
+    <h2>Havola ishlamadi</h2>
+    <p id="yaroqsizSabab">Havolaning muddati o‘tgan yoki u
+    allaqachon ishlatilgan.</p>
+    <div class="ogoh">
+      <p><strong>Nima qilish kerak.</strong> Ilovaning kirish ekranida
+      yana bir marta “Parolni unutdim” ni bosing — yangi
+      havola keladi. Havola bir martalik va bir soat amal qiladi.</p>
+      <p>Agar hisobingizda haqiqiy pochta bo‘lmasa, yangi parolni
+      korxona egasidan so‘rang: u Xodimlar ekranidan
+      o‘zgartirib beradi.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p><a href="index.html">Bosh sahifa</a> &middot;
+     <a href="qollanma.html">Qo‘llanma</a> &middot;
+     <a href="maxfiylik.html">Maxfiylik siyosati</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+// ---------------------------------------------------------------
+// PAROL QO'YISH SAHIFASI
+//
+// Bu sahifa FAQAT haqiqiy pochtali hisob uchun. Xodimlarning
+// pochtasi soxta (login + '@karyer.uz'), ularga tiklash xati
+// bormaydi - ilova buni kirish ekranidayoq to'sadi.
+//
+// Ishlash tartibi: ilovadagi "Parolni unutdim" Supabase ga
+// so'rov yuboradi, Supabase pochtaga havola tashlaydi, havola
+// shu sahifaga qaytaradi va manzil ichida vaqtinchalik kalit
+// bo'ladi. Kalitni supabase-js o'zi o'qib sessiya ochadi, biz
+// esa shu sessiya bilan yangi parolni yozamiz.
+//
+// Kalit UCH XIL ko'rinishda kelishi mumkin - Supabase sozlamasi
+// va versiyasiga qarab. Uchalasi ham qo'llab-quvvatlanadi.
+// ---------------------------------------------------------------
+
+var MANZIL = 'https://hemgwxlpgdxzijmdsdse.supabase.co';
+var KALIT = 'sb_publishable_FqriuXRuvWSYq1gcmsHQLA_1ydE9FUB';
+
+var db = window.supabase.createClient(MANZIL, KALIT, {
+  auth: { detectSessionInUrl: true, persistSession: false }
+});
+
+function kor(nom) { document.getElementById(nom).hidden = false; }
+function yash(nom) { document.getElementById(nom).hidden = true; }
+
+function yaroqsizKorsat(sabab) {
+  if (sabab) document.getElementById('yaroqsizSabab').textContent = sabab;
+  yash('kutish'); yash('shakl'); kor('yaroqsiz');
+}
+
+function xatoKorsat(matn) {
+  var quti = document.getElementById('xato');
+  quti.querySelector('p').textContent = matn;
+  quti.hidden = false;
+}
+
+// Manzildagi kalitni sessiyaga aylantiramiz
+async function sessiyaOch() {
+  var hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+  var soro = new URLSearchParams(window.location.search);
+
+  // Supabase o'zi xato qaytargan bo'lsa (muddati o'tgan havola)
+  var xato = hash.get('error_description') || soro.get('error_description');
+  if (xato) return { ok: false, sabab: xato };
+
+  // 1-ko'rinish: eski uslub - kalit hash ichida.
+  // detectSessionInUrl uni o'zi o'qigan bo'ladi, faqat kutamiz
+  if (hash.get('access_token')) {
+    var s1 = await db.auth.getSession();
+    if (s1.data && s1.data.session) return { ok: true };
+    var q = await db.auth.setSession({
+      access_token: hash.get('access_token'),
+      refresh_token: hash.get('refresh_token')
+    });
+    return q.error ? { ok: false, sabab: q.error.message } : { ok: true };
+  }
+
+  // 2-ko'rinish: token_hash - Supabase ning yangi pochta qolipi
+  var th = soro.get('token_hash') || hash.get('token_hash');
+  if (th) {
+    var q2 = await db.auth.verifyOtp({ token_hash: th, type: 'recovery' });
+    return q2.error ? { ok: false, sabab: q2.error.message } : { ok: true };
+  }
+
+  // 3-ko'rinish: code - PKCE oqimi
+  var kod = soro.get('code');
+  if (kod) {
+    var q3 = await db.auth.exchangeCodeForSession(kod);
+    return q3.error ? { ok: false, sabab: q3.error.message } : { ok: true };
+  }
+
+  // Manzilda hech narsa yo'q - odam sahifani to'g'ridan ochgan
+  return { ok: false, sabab: 'Bu sahifa pochtangizga kelgan havola '
+    + 'orqali ochiladi. Havolasiz parolni o‘zgartirib bo‘lmaydi.' };
+}
+
+async function boshla() {
+  var natija;
+  try {
+    natija = await sessiyaOch();
+  } catch (e) {
+    natija = { ok: false, sabab: String(e && e.message ? e.message : e) };
+  }
+
+  if (!natija.ok) { yaroqsizKorsat(natija.sabab); return; }
+
+  var kim = await db.auth.getUser();
+  var pochta = kim.data && kim.data.user ? kim.data.user.email : '';
+  if (pochta) {
+    document.getElementById('pochta').textContent = pochta + ' hisobi uchun';
+  }
+
+  yash('kutish'); kor('shakl');
+  document.getElementById('p1').focus();
+}
+
+async function saqla() {
+  var p1 = document.getElementById('p1').value;
+  var p2 = document.getElementById('p2').value;
+  var tugma = document.getElementById('tugma');
+
+  yash('xato');
+
+  if (p1.length < 6) { xatoKorsat('Parol kamida 6 belgi bo‘lsin'); return; }
+  if (p1 !== p2) { xatoKorsat('Ikki parol bir xil emas'); return; }
+
+  tugma.disabled = true;
+  tugma.textContent = 'Saqlanmoqda...';
+
+  var javob;
+  try {
+    javob = await db.auth.updateUser({ password: p1 });
+  } catch (e) {
+    javob = { error: { message: String(e && e.message ? e.message : e) } };
+  }
+
+  tugma.disabled = false;
+  tugma.textContent = 'Saqlash';
+
+  if (javob.error) { xatoKorsat(javob.error.message); return; }
+
+  // Sessiya bu sahifada kerak emas - yopamiz
+  try { await db.auth.signOut(); } catch (e) { /* muhim emas */ }
+
+  yash('shakl'); kor('boldi');
+}
+
+document.getElementById('tugma').addEventListener('click', saqla);
+document.getElementById('p2').addEventListener('keydown', function (h) {
+  if (h.key === 'Enter') saqla();
+});
+
+boshla();
+</script>
+
+</body>
+</html>
